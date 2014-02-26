@@ -5,7 +5,38 @@
 	<title>First Ajax Tutor</title>
 </head>
 <script type="text/javascript">
-
+	var ajaxku;
+	function ambildata(nip){
+		ajaxku = buatajax();
+		var url = 'datakaryawan.php';
+		url = url+"?q="+nip;
+		url = utl+"&id="+Math.random();
+		ajaxku.onreadystatechange = stateChanged;
+		ajaxku.open("GET",url,true);
+		ajaxku.send(null);
+	}
+	
+	function buatajax(){
+		if ( window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		}
+		if ( window.ActiveXObject) {
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		return null;
+	}
+	
+	function stateChanged() {
+		var data;
+		if ( ajaxku.readyState==4 ) {
+			data = ajaxku.responseText;
+			if ( data.length > 0 ) {
+				document.getElementById("alamat").value = data;
+			} else {
+				document.getElementById("alamat").value = " ";
+			}
+		}
+	}
 </script>
 <body>
 <table>
