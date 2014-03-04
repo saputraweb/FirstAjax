@@ -43,7 +43,7 @@
 <body>
 <table>
 	<tr>
-		<td>NIP :</td>
+		<td>NAMA :</td>
 	</tr>
 	<tr>
 		<td>
